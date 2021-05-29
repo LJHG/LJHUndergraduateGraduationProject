@@ -1,0 +1,371 @@
+此处展示的是MobileNet经过100个epochs的训练结果，最后在测试集上的准确度为64.65%，模型保存为mobilenet.h5，转换为tflite后保存为mobileNetV1.tflite。
+
+
+root@331c95d17f3a:/home/larq_projects/BNN_demo_model_training/classification# python main.py
+2021-05-22 05:29:43.671122: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-05-22 05:29:47.304602: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-05-22 05:29:47.305467: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-05-22 05:29:47.334729: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.335031: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1060 computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 10 deviceMemorySize: 2.95GiB deviceMemoryBandwidth: 178.99GiB/s
+2021-05-22 05:29:47.335055: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-05-22 05:29:47.337124: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-05-22 05:29:47.337194: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-05-22 05:29:47.338247: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-05-22 05:29:47.338503: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-05-22 05:29:47.341044: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-05-22 05:29:47.341675: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-05-22 05:29:47.341843: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-05-22 05:29:47.341947: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.342277: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.342544: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-05-22 05:29:47.343199: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-05-22 05:29:47.343336: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.343619: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1060 computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 10 deviceMemorySize: 2.95GiB deviceMemoryBandwidth: 178.99GiB/s
+2021-05-22 05:29:47.343643: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-05-22 05:29:47.343679: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-05-22 05:29:47.343700: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-05-22 05:29:47.343719: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-05-22 05:29:47.343741: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-05-22 05:29:47.343765: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2021-05-22 05:29:47.343787: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-05-22 05:29:47.343808: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-05-22 05:29:47.343880: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.344183: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.344427: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-05-22 05:29:47.344455: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-05-22 05:29:47.819000: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-05-22 05:29:47.819031: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2021-05-22 05:29:47.819038: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2021-05-22 05:29:47.819236: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.819735: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.820033: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:941] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-05-22 05:29:47.820288: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1844 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
++mobilenet_1.00_32 stats--------------------------------------------------------------------+
+| Layer                     Input prec.            Outputs  # 32-bit    Memory  32-bit MACs |
+|                                 (bit)                          x 1      (kB)              |
++-------------------------------------------------------------------------------------------+
+| input_1                             -    (-1, 32, 32, 3)         0         0            ? |
+| conv1_pad                           -    (-1, 33, 33, 3)         0         0            ? |
+| conv1                               -   (-1, 31, 31, 32)       864      3.38       830304 |
+| conv1_bn                            -   (-1, 31, 31, 32)        64      0.25            0 |
+| conv1_relu                          -   (-1, 31, 31, 32)         0         0            ? |
+| conv_dw_1                           -   (-1, 31, 31, 32)       288      1.12       276768 |
+| conv_dw_1_bn                        -   (-1, 31, 31, 32)        64      0.25            0 |
+| conv_dw_1_relu                      -   (-1, 31, 31, 32)         0         0            ? |
+| conv_pw_1                           -   (-1, 31, 31, 64)      2048      8.00      1968128 |
+| conv_pw_1_bn                        -   (-1, 31, 31, 64)       128      0.50            0 |
+| conv_pw_1_relu                      -   (-1, 31, 31, 64)         0         0            ? |
+| conv_dw_2                           -   (-1, 31, 31, 64)       576      2.25       553536 |
+| conv_dw_2_bn                        -   (-1, 31, 31, 64)       128      0.50            0 |
+| conv_dw_2_relu                      -   (-1, 31, 31, 64)         0         0            ? |
+| conv_pw_2                           -  (-1, 31, 31, 128)      8192     32.00      7872512 |
+| conv_pw_2_bn                        -  (-1, 31, 31, 128)       256      1.00            0 |
+| conv_pw_2_relu                      -  (-1, 31, 31, 128)         0         0            ? |
+| conv_dw_3                           -  (-1, 31, 31, 128)      1152      4.50      1107072 |
+| conv_dw_3_bn                        -  (-1, 31, 31, 128)       256      1.00            0 |
+| conv_dw_3_relu                      -  (-1, 31, 31, 128)         0         0            ? |
+| conv_pw_3                           -  (-1, 31, 31, 128)     16384     64.00     15745024 |
+| conv_pw_3_bn                        -  (-1, 31, 31, 128)       256      1.00            0 |
+| conv_pw_3_relu                      -  (-1, 31, 31, 128)         0         0            ? |
+| conv_pad_4                          -  (-1, 32, 32, 128)         0         0            ? |
+| conv_dw_4                           -  (-1, 15, 15, 128)      1152      4.50       259200 |
+| conv_dw_4_bn                        -  (-1, 15, 15, 128)       256      1.00            0 |
+| conv_dw_4_relu                      -  (-1, 15, 15, 128)         0         0            ? |
+| conv_pw_4                           -  (-1, 15, 15, 256)     32768    128.00      7372800 |
+| conv_pw_4_bn                        -  (-1, 15, 15, 256)       512      2.00            0 |
+| conv_pw_4_relu                      -  (-1, 15, 15, 256)         0         0            ? |
+| conv_dw_5                           -  (-1, 15, 15, 256)      2304      9.00       518400 |
+| conv_dw_5_bn                        -  (-1, 15, 15, 256)       512      2.00            0 |
+| conv_dw_5_relu                      -  (-1, 15, 15, 256)         0         0            ? |
+| conv_pw_5                           -  (-1, 15, 15, 256)     65536    256.00     14745600 |
+| conv_pw_5_bn                        -  (-1, 15, 15, 256)       512      2.00            0 |
+| conv_pw_5_relu                      -  (-1, 15, 15, 256)         0         0            ? |
+| conv_pad_6                          -  (-1, 16, 16, 256)         0         0            ? |
+| conv_dw_6                           -    (-1, 7, 7, 256)      2304      9.00       112896 |
+| conv_dw_6_bn                        -    (-1, 7, 7, 256)       512      2.00            0 |
+| conv_dw_6_relu                      -    (-1, 7, 7, 256)         0         0            ? |
+| conv_pw_6                           -    (-1, 7, 7, 512)    131072    512.00      6422528 |
+| conv_pw_6_bn                        -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_pw_6_relu                      -    (-1, 7, 7, 512)         0         0            ? |
+| conv_dw_7                           -    (-1, 7, 7, 512)      4608     18.00       225792 |
+| conv_dw_7_bn                        -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_dw_7_relu                      -    (-1, 7, 7, 512)         0         0            ? |
+| conv_pw_7                           -    (-1, 7, 7, 512)    262144   1024.00     12845056 |
+| conv_pw_7_bn                        -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_pw_7_relu                      -    (-1, 7, 7, 512)         0         0            ? |
+| conv_dw_8                           -    (-1, 7, 7, 512)      4608     18.00       225792 |
+| conv_dw_8_bn                        -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_dw_8_relu                      -    (-1, 7, 7, 512)         0         0            ? |
+| conv_pw_8                           -    (-1, 7, 7, 512)    262144   1024.00     12845056 |
+| conv_pw_8_bn                        -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_pw_8_relu                      -    (-1, 7, 7, 512)         0         0            ? |
+| conv_dw_9                           -    (-1, 7, 7, 512)      4608     18.00       225792 |
+| conv_dw_9_bn                        -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_dw_9_relu                      -    (-1, 7, 7, 512)         0         0            ? |
+| conv_pw_9                           -    (-1, 7, 7, 512)    262144   1024.00     12845056 |
+| conv_pw_9_bn                        -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_pw_9_relu                      -    (-1, 7, 7, 512)         0         0            ? |
+| conv_dw_10                          -    (-1, 7, 7, 512)      4608     18.00       225792 |
+| conv_dw_10_bn                       -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_dw_10_relu                     -    (-1, 7, 7, 512)         0         0            ? |
+| conv_pw_10                          -    (-1, 7, 7, 512)    262144   1024.00     12845056 |
+| conv_pw_10_bn                       -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_pw_10_relu                     -    (-1, 7, 7, 512)         0         0            ? |
+| conv_dw_11                          -    (-1, 7, 7, 512)      4608     18.00       225792 |
+| conv_dw_11_bn                       -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_dw_11_relu                     -    (-1, 7, 7, 512)         0         0            ? |
+| conv_pw_11                          -    (-1, 7, 7, 512)    262144   1024.00     12845056 |
+| conv_pw_11_bn                       -    (-1, 7, 7, 512)      1024      4.00            0 |
+| conv_pw_11_relu                     -    (-1, 7, 7, 512)         0         0            ? |
+| conv_pad_12                         -    (-1, 8, 8, 512)         0         0            ? |
+| conv_dw_12                          -    (-1, 3, 3, 512)      4608     18.00        41472 |
+| conv_dw_12_bn                       -    (-1, 3, 3, 512)      1024      4.00            0 |
+| conv_dw_12_relu                     -    (-1, 3, 3, 512)         0         0            ? |
+| conv_pw_12                          -   (-1, 3, 3, 1024)    524288   2048.00      4718592 |
+| conv_pw_12_bn                       -   (-1, 3, 3, 1024)      2048      8.00            0 |
+| conv_pw_12_relu                     -   (-1, 3, 3, 1024)         0         0            ? |
+| conv_dw_13                          -   (-1, 3, 3, 1024)      9216     36.00        82944 |
+| conv_dw_13_bn                       -   (-1, 3, 3, 1024)      2048      8.00            0 |
+| conv_dw_13_relu                     -   (-1, 3, 3, 1024)         0         0            ? |
+| conv_pw_13                          -   (-1, 3, 3, 1024)   1048576   4096.00      9437184 |
+| conv_pw_13_bn                       -   (-1, 3, 3, 1024)      2048      8.00            0 |
+| conv_pw_13_relu                     -   (-1, 3, 3, 1024)         0         0            ? |
+| global_average_pooling2d            -         (-1, 1024)         0         0            ? |
+| dense                               -          (-1, 100)    102500    400.39       102400 |
++-------------------------------------------------------------------------------------------+
+| Total                                                      3309476  12927.64    137521600 |
++-------------------------------------------------------------------------------------------+
++mobilenet_1.00_32 summary-----------------+
+| Total params                   3.31 M    |
+| Trainable params               3.29 M    |
+| Non-trainable params           21.9 k    |
+| Model size                     12.62 MiB |
+| Model size (8-bit FP weights)  3.16 MiB  |
+| Float-32 Equivalent            12.62 MiB |
+| Compression Ratio of Memory    1.00      |
+| Number of MACs                 138 M     |
++------------------------------------------+
+lr is....:0.01
+2021-05-22 05:29:48.498535: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-05-22 05:29:48.518639: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2599990000 Hz
+Epoch 1/100
+2021-05-22 05:29:51.001318: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-05-22 05:29:51.236984: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-05-22 05:29:51.241198: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-05-22 05:29:52.264937: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.21GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-22 05:29:52.279242: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-22 05:29:52.297540: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-22 05:29:52.319095: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.27GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-22 05:29:52.332669: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.28GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+203/782 [======>.......................] - ETA: 46s - loss: 5.2109 - accuracy: 0.02352021-05-22 05:30:08.881103: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.30GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-22 05:30:08.893738: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.30GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2021-05-22 05:30:08.902881: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.27GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+782/782 [==============================] - ETA: 0s - loss: 4.6169 - accuracy: 0.04522021-05-22 05:30:58.034593: W tensorflow/core/common_runtime/bfc_allocator.cc:248] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.34GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+782/782 [==============================] - 74s 89ms/step - loss: 4.6164 - accuracy: 0.0452 - val_loss: 4.7837 - val_accuracy: 0.0924
+Epoch 2/100
+782/782 [==============================] - 69s 88ms/step - loss: 3.7839 - accuracy: 0.1363 - val_loss: 4.5797 - val_accuracy: 0.1022
+Epoch 3/100
+782/782 [==============================] - 70s 89ms/step - loss: 3.4375 - accuracy: 0.2098 - val_loss: 4.9619 - val_accuracy: 0.1368
+Epoch 4/100
+782/782 [==============================] - 71s 90ms/step - loss: 3.1422 - accuracy: 0.2766 - val_loss: 3.6074 - val_accuracy: 0.2537
+Epoch 5/100
+782/782 [==============================] - 72s 92ms/step - loss: 2.9427 - accuracy: 0.3319 - val_loss: 4.7846 - val_accuracy: 0.1792
+Epoch 6/100
+782/782 [==============================] - 72s 92ms/step - loss: 2.7995 - accuracy: 0.3693 - val_loss: 2.9244 - val_accuracy: 0.3598
+Epoch 7/100
+782/782 [==============================] - 73s 93ms/step - loss: 2.6933 - accuracy: 0.3972 - val_loss: 3.2751 - val_accuracy: 0.3285
+Epoch 8/100
+782/782 [==============================] - 74s 94ms/step - loss: 2.6095 - accuracy: 0.4198 - val_loss: 3.4933 - val_accuracy: 0.3025
+Epoch 9/100
+782/782 [==============================] - 75s 96ms/step - loss: 2.5441 - accuracy: 0.4373 - val_loss: 2.9643 - val_accuracy: 0.3640
+Epoch 10/100
+782/782 [==============================] - 74s 95ms/step - loss: 2.4740 - accuracy: 0.4538 - val_loss: 2.8435 - val_accuracy: 0.3957
+Epoch 11/100
+782/782 [==============================] - 74s 95ms/step - loss: 2.4183 - accuracy: 0.4646 - val_loss: 3.2585 - val_accuracy: 0.3328
+Epoch 12/100
+782/782 [==============================] - 74s 95ms/step - loss: 2.3475 - accuracy: 0.4792 - val_loss: 2.9537 - val_accuracy: 0.3852
+Epoch 13/100
+782/782 [==============================] - 75s 95ms/step - loss: 2.3185 - accuracy: 0.4829 - val_loss: 2.8488 - val_accuracy: 0.3917
+Epoch 14/100
+782/782 [==============================] - 73s 94ms/step - loss: 2.2619 - accuracy: 0.4971 - val_loss: 3.2811 - val_accuracy: 0.3382
+Epoch 15/100
+782/782 [==============================] - 74s 94ms/step - loss: 2.2211 - accuracy: 0.5076 - val_loss: 3.0682 - val_accuracy: 0.3639
+Epoch 16/100
+782/782 [==============================] - 72s 93ms/step - loss: 2.2004 - accuracy: 0.5116 - val_loss: 2.6025 - val_accuracy: 0.4409
+Epoch 17/100
+782/782 [==============================] - 73s 93ms/step - loss: 2.1696 - accuracy: 0.5179 - val_loss: 2.7770 - val_accuracy: 0.4218
+Epoch 18/100
+782/782 [==============================] - 72s 93ms/step - loss: 2.1454 - accuracy: 0.5235 - val_loss: 2.8307 - val_accuracy: 0.3952
+Epoch 19/100
+782/782 [==============================] - 73s 94ms/step - loss: 2.1208 - accuracy: 0.5284 - val_loss: 2.6896 - val_accuracy: 0.4349
+Epoch 20/100
+782/782 [==============================] - 74s 95ms/step - loss: 2.0926 - accuracy: 0.5351 - val_loss: 2.8609 - val_accuracy: 0.4008
+Epoch 21/100
+782/782 [==============================] - 74s 94ms/step - loss: 1.8995 - accuracy: 0.5790 - val_loss: 2.0845 - val_accuracy: 0.5418
+Epoch 22/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.7903 - accuracy: 0.6008 - val_loss: 2.1886 - val_accuracy: 0.5279
+Epoch 23/100
+782/782 [==============================] - 74s 94ms/step - loss: 1.7386 - accuracy: 0.6083 - val_loss: 2.1184 - val_accuracy: 0.5298
+Epoch 24/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.6951 - accuracy: 0.6176 - val_loss: 2.3144 - val_accuracy: 0.4957
+Epoch 25/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.6756 - accuracy: 0.6172 - val_loss: 2.4374 - val_accuracy: 0.4817
+Epoch 26/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.6427 - accuracy: 0.6268 - val_loss: 1.9888 - val_accuracy: 0.5550
+Epoch 27/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.6441 - accuracy: 0.6223 - val_loss: 2.1412 - val_accuracy: 0.5328
+Epoch 28/100
+782/782 [==============================] - 72s 93ms/step - loss: 1.6167 - accuracy: 0.6266 - val_loss: 2.3005 - val_accuracy: 0.5046
+Epoch 29/100
+782/782 [==============================] - 72s 93ms/step - loss: 1.5781 - accuracy: 0.6378 - val_loss: 2.0507 - val_accuracy: 0.5525
+Epoch 30/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.5876 - accuracy: 0.6374 - val_loss: 2.2482 - val_accuracy: 0.5053
+Epoch 31/100
+782/782 [==============================] - 71s 91ms/step - loss: 1.5665 - accuracy: 0.6398 - val_loss: 2.1227 - val_accuracy: 0.5361
+Epoch 32/100
+782/782 [==============================] - 72s 92ms/step - loss: 1.5504 - accuracy: 0.6425 - val_loss: 2.4526 - val_accuracy: 0.4796
+Epoch 33/100
+782/782 [==============================] - 74s 94ms/step - loss: 1.5504 - accuracy: 0.6420 - val_loss: 2.1681 - val_accuracy: 0.5303
+Epoch 34/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.5394 - accuracy: 0.6470 - val_loss: 2.3738 - val_accuracy: 0.5069
+Epoch 35/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.5196 - accuracy: 0.6522 - val_loss: 2.0146 - val_accuracy: 0.5531
+Epoch 36/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.5215 - accuracy: 0.6479 - val_loss: 2.3691 - val_accuracy: 0.5088
+Epoch 37/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.4974 - accuracy: 0.6562 - val_loss: 2.1207 - val_accuracy: 0.5524
+Epoch 38/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.4978 - accuracy: 0.6561 - val_loss: 2.0000 - val_accuracy: 0.5588
+Epoch 39/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.4964 - accuracy: 0.6552 - val_loss: 1.9060 - val_accuracy: 0.5750
+Epoch 40/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.4779 - accuracy: 0.6617 - val_loss: 2.1946 - val_accuracy: 0.5285
+Epoch 41/100
+782/782 [==============================] - 74s 95ms/step - loss: 1.3764 - accuracy: 0.6868 - val_loss: 1.8098 - val_accuracy: 0.5987
+Epoch 42/100
+782/782 [==============================] - 72s 91ms/step - loss: 1.2989 - accuracy: 0.7076 - val_loss: 1.8034 - val_accuracy: 0.6029
+Epoch 43/100
+782/782 [==============================] - 72s 91ms/step - loss: 1.2742 - accuracy: 0.7122 - val_loss: 2.0756 - val_accuracy: 0.5630
+Epoch 44/100
+782/782 [==============================] - 75s 95ms/step - loss: 1.2521 - accuracy: 0.7154 - val_loss: 1.7055 - val_accuracy: 0.6166
+Epoch 45/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.2376 - accuracy: 0.7190 - val_loss: 1.9694 - val_accuracy: 0.5809
+Epoch 46/100
+782/782 [==============================] - 72s 91ms/step - loss: 1.2268 - accuracy: 0.7182 - val_loss: 1.7484 - val_accuracy: 0.6100
+Epoch 47/100
+782/782 [==============================] - 71s 91ms/step - loss: 1.2126 - accuracy: 0.7235 - val_loss: 1.9677 - val_accuracy: 0.5756
+Epoch 48/100
+782/782 [==============================] - 72s 92ms/step - loss: 1.1958 - accuracy: 0.7265 - val_loss: 1.7536 - val_accuracy: 0.6135
+Epoch 49/100
+782/782 [==============================] - 71s 91ms/step - loss: 1.1816 - accuracy: 0.7267 - val_loss: 1.9317 - val_accuracy: 0.5964
+Epoch 50/100
+782/782 [==============================] - 72s 91ms/step - loss: 1.1771 - accuracy: 0.7278 - val_loss: 1.9411 - val_accuracy: 0.5885
+Epoch 51/100
+782/782 [==============================] - 72s 92ms/step - loss: 1.1646 - accuracy: 0.7329 - val_loss: 1.7378 - val_accuracy: 0.6246
+Epoch 52/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.1721 - accuracy: 0.7323 - val_loss: 1.8452 - val_accuracy: 0.5982
+Epoch 53/100
+782/782 [==============================] - 74s 95ms/step - loss: 1.1612 - accuracy: 0.7285 - val_loss: 1.9327 - val_accuracy: 0.5850
+Epoch 54/100
+782/782 [==============================] - 78s 99ms/step - loss: 1.1447 - accuracy: 0.7371 - val_loss: 1.7557 - val_accuracy: 0.6168
+Epoch 55/100
+782/782 [==============================] - 77s 98ms/step - loss: 1.1467 - accuracy: 0.7354 - val_loss: 1.8856 - val_accuracy: 0.5904
+Epoch 56/100
+782/782 [==============================] - 76s 97ms/step - loss: 1.1275 - accuracy: 0.7382 - val_loss: 1.8360 - val_accuracy: 0.6064
+Epoch 57/100
+782/782 [==============================] - 76s 97ms/step - loss: 1.1321 - accuracy: 0.7361 - val_loss: 1.7604 - val_accuracy: 0.6112
+Epoch 58/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.1199 - accuracy: 0.7407 - val_loss: 1.9027 - val_accuracy: 0.5928
+Epoch 59/100
+782/782 [==============================] - 75s 95ms/step - loss: 1.1098 - accuracy: 0.7426 - val_loss: 1.9854 - val_accuracy: 0.5781
+Epoch 60/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.1137 - accuracy: 0.7427 - val_loss: 1.7216 - val_accuracy: 0.6155
+Epoch 61/100
+782/782 [==============================] - 73s 93ms/step - loss: 1.0332 - accuracy: 0.7650 - val_loss: 1.7332 - val_accuracy: 0.6205
+Epoch 62/100
+782/782 [==============================] - 75s 95ms/step - loss: 0.9969 - accuracy: 0.7732 - val_loss: 1.8840 - val_accuracy: 0.6005
+Epoch 63/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.9744 - accuracy: 0.7793 - val_loss: 1.7171 - val_accuracy: 0.6320
+Epoch 64/100
+782/782 [==============================] - 72s 92ms/step - loss: 0.9717 - accuracy: 0.7798 - val_loss: 1.6741 - val_accuracy: 0.6432
+Epoch 65/100
+782/782 [==============================] - 72s 92ms/step - loss: 0.9543 - accuracy: 0.7847 - val_loss: 1.7642 - val_accuracy: 0.6267
+Epoch 66/100
+782/782 [==============================] - 73s 94ms/step - loss: 0.9565 - accuracy: 0.7850 - val_loss: 1.8019 - val_accuracy: 0.6188
+Epoch 67/100
+782/782 [==============================] - 72s 92ms/step - loss: 0.9539 - accuracy: 0.7821 - val_loss: 1.7115 - val_accuracy: 0.6368
+Epoch 68/100
+782/782 [==============================] - 73s 94ms/step - loss: 0.9333 - accuracy: 0.7877 - val_loss: 1.8185 - val_accuracy: 0.6220
+Epoch 69/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.9243 - accuracy: 0.7883 - val_loss: 1.7335 - val_accuracy: 0.6323
+Epoch 70/100
+782/782 [==============================] - 72s 92ms/step - loss: 0.9212 - accuracy: 0.7899 - val_loss: 1.7645 - val_accuracy: 0.6255
+Epoch 71/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.9263 - accuracy: 0.7878 - val_loss: 1.7865 - val_accuracy: 0.6178
+Epoch 72/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.9087 - accuracy: 0.7929 - val_loss: 1.7080 - val_accuracy: 0.6344
+Epoch 73/100
+782/782 [==============================] - 72s 92ms/step - loss: 0.9095 - accuracy: 0.7904 - val_loss: 1.8034 - val_accuracy: 0.6200
+Epoch 74/100
+782/782 [==============================] - 73s 94ms/step - loss: 0.9042 - accuracy: 0.7944 - val_loss: 1.6610 - val_accuracy: 0.6427
+Epoch 75/100
+782/782 [==============================] - 76s 97ms/step - loss: 0.8927 - accuracy: 0.7956 - val_loss: 1.6323 - val_accuracy: 0.6465
+Epoch 76/100
+782/782 [==============================] - 76s 97ms/step - loss: 0.8814 - accuracy: 0.7972 - val_loss: 1.8567 - val_accuracy: 0.6097
+Epoch 77/100
+782/782 [==============================] - 74s 94ms/step - loss: 0.8805 - accuracy: 0.7967 - val_loss: 1.7815 - val_accuracy: 0.6255
+Epoch 78/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.8699 - accuracy: 0.8000 - val_loss: 1.7188 - val_accuracy: 0.6345
+Epoch 79/100
+782/782 [==============================] - 76s 97ms/step - loss: 0.8689 - accuracy: 0.8010 - val_loss: 1.7870 - val_accuracy: 0.6229
+Epoch 80/100
+782/782 [==============================] - 75s 96ms/step - loss: 0.8704 - accuracy: 0.7993 - val_loss: 1.7295 - val_accuracy: 0.6380
+Epoch 81/100
+782/782 [==============================] - 75s 96ms/step - loss: 0.8325 - accuracy: 0.8110 - val_loss: 1.7109 - val_accuracy: 0.6460
+Epoch 82/100
+782/782 [==============================] - 75s 96ms/step - loss: 0.8171 - accuracy: 0.8155 - val_loss: 1.7149 - val_accuracy: 0.6417
+Epoch 83/100
+782/782 [==============================] - 75s 96ms/step - loss: 0.7921 - accuracy: 0.8218 - val_loss: 1.7140 - val_accuracy: 0.6464
+Epoch 84/100
+782/782 [==============================] - 75s 96ms/step - loss: 0.7882 - accuracy: 0.8240 - val_loss: 1.6851 - val_accuracy: 0.6451
+Epoch 85/100
+782/782 [==============================] - 75s 96ms/step - loss: 0.7933 - accuracy: 0.8213 - val_loss: 1.6990 - val_accuracy: 0.6459
+Epoch 86/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.7926 - accuracy: 0.8192 - val_loss: 1.7673 - val_accuracy: 0.6384
+Epoch 87/100
+782/782 [==============================] - 72s 92ms/step - loss: 0.7877 - accuracy: 0.8212 - val_loss: 1.7211 - val_accuracy: 0.6393
+Epoch 88/100
+782/782 [==============================] - 72s 92ms/step - loss: 0.7668 - accuracy: 0.8275 - val_loss: 1.7983 - val_accuracy: 0.6355
+Epoch 89/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.7711 - accuracy: 0.8247 - val_loss: 1.7889 - val_accuracy: 0.6331
+Epoch 90/100
+782/782 [==============================] - 72s 92ms/step - loss: 0.7630 - accuracy: 0.8288 - val_loss: 1.7414 - val_accuracy: 0.6436
+Epoch 91/100
+782/782 [==============================] - 75s 96ms/step - loss: 0.7558 - accuracy: 0.8298 - val_loss: 1.7515 - val_accuracy: 0.6453
+Epoch 92/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.7545 - accuracy: 0.8293 - val_loss: 1.7180 - val_accuracy: 0.6450
+Epoch 93/100
+782/782 [==============================] - 74s 94ms/step - loss: 0.7615 - accuracy: 0.8258 - val_loss: 1.7564 - val_accuracy: 0.6448
+Epoch 94/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.7515 - accuracy: 0.8317 - val_loss: 1.7446 - val_accuracy: 0.6450
+Epoch 95/100
+782/782 [==============================] - 73s 93ms/step - loss: 0.7404 - accuracy: 0.8333 - val_loss: 1.8198 - val_accuracy: 0.6345
+Epoch 96/100
+782/782 [==============================] - 77s 99ms/step - loss: 0.7453 - accuracy: 0.8337 - val_loss: 1.8103 - val_accuracy: 0.6371
+Epoch 97/100
+782/782 [==============================] - 77s 99ms/step - loss: 0.7370 - accuracy: 0.8357 - val_loss: 1.7539 - val_accuracy: 0.6461
+Epoch 98/100
+782/782 [==============================] - 76s 97ms/step - loss: 0.7322 - accuracy: 0.8351 - val_loss: 1.8156 - val_accuracy: 0.6396
+Epoch 99/100
+782/782 [==============================] - 75s 96ms/step - loss: 0.7404 - accuracy: 0.8317 - val_loss: 1.7462 - val_accuracy: 0.6412
+Epoch 100/100
+782/782 [==============================] - 76s 98ms/step - loss: 0.7233 - accuracy: 0.8395 - val_loss: 1.7720 - val_accuracy: 0.6446
+train_acc : 0.8348399996757507
+valid_acc : 0.6464999914169312
+train_loss: 0.7327817678451538
+valid_loss: 1.6322885751724243
+best acc is...: 0.6464999914169312

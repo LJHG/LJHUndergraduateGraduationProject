@@ -1,0 +1,2 @@
+recursive-include larq_compute_engine *.so
+recursive-include larq_compute_engine *.pyd
